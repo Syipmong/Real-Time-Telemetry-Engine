@@ -24,5 +24,14 @@ extern "C"
         volatile size_t head;
         volatile size_t tail;
     } spsc_ring_buffer_t;
-    
+
+    void ring_buffer_init(spsc_ring_buffer_t *rb);
+    void ring_buffer_push(spsc_ring_buffer_t *rb, uint8_t byte);
+    bool ring_buffer_pop(spsc_ring_buffer_t *rb, uint8_t *byte);
+    size_t ring_buffer_available(const spsc_ring_buffer_t *rb);
+
+    #ifdef __cplusplus
 }
+
+#endif
+#endif /* RINGBUFFER_H */
